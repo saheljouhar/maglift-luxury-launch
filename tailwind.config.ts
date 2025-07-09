@@ -14,6 +14,9 @@ export default {
     "./src/**/*.{ts,tsx}",
   ],
   prefix: "",
+  corePlugins: {
+    preflight: false // Disables legacy PostCSS handling
+  },
   theme: {
     container: {
       center: true,
