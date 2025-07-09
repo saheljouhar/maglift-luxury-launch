@@ -43,17 +43,17 @@ export const LeadForm = () => {
   };
 
   return (
-    <section id="lead-form" className="py-20 bg-gradient-to-br from-slate-50 to-blue-50">
+    <section id="lead-form" className="py-20 bg-gradient-to-br from-gray-50 to-white">
       <div className="container mx-auto px-4">
         <div className="max-w-2xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-6">
-              Reserve Your <span className="bg-gradient-to-r from-cyan-500 to-blue-600 bg-clip-text text-transparent">MagLift</span>
+            <h2 className="text-4xl lg:text-5xl font-bold text-black mb-6">
+              Reserve Your <span className="bg-gradient-to-r from-black to-gray-600 bg-clip-text text-transparent">MagLift</span>
             </h2>
-            <p className="text-xl text-slate-600 mb-4">
+            <p className="text-xl text-gray-600 mb-4">
               Join the waitlist for exclusive early access and special pricing
             </p>
-            <div className="inline-flex items-center space-x-2 bg-green-100 text-green-800 px-4 py-2 rounded-full">
+            <div className="inline-flex items-center space-x-2 bg-gray-100 text-gray-800 px-4 py-2 rounded-full">
               <Shield className="h-4 w-4" />
               <span className="text-sm font-medium">No payment required now</span>
             </div>
@@ -62,7 +62,7 @@ export const LeadForm = () => {
           <form onSubmit={handleSubmit} className="bg-white rounded-2xl shadow-xl p-8">
             <div className="grid md:grid-cols-2 gap-6 mb-6">
               <div>
-                <label className="block text-sm font-medium text-slate-700 mb-2">
+                <label className="block text-sm font-medium text-gray-700 mb-2">
                   Full Name *
                 </label>
                 <Input
@@ -70,13 +70,13 @@ export const LeadForm = () => {
                   required
                   value={formData.name}
                   onChange={(e) => handleInputChange("name", e.target.value)}
-                  className="w-full rounded-xl border-slate-300 focus:border-cyan-500 focus:ring-cyan-500"
+                  className="w-full rounded-xl border-gray-300 focus:border-black focus:ring-black"
                   placeholder="Enter your name"
                 />
               </div>
               
               <div>
-                <label className="block text-sm font-medium text-slate-700 mb-2">
+                <label className="block text-sm font-medium text-gray-700 mb-2">
                   Email Address *
                 </label>
                 <Input
@@ -84,7 +84,7 @@ export const LeadForm = () => {
                   required
                   value={formData.email}
                   onChange={(e) => handleInputChange("email", e.target.value)}
-                  className="w-full rounded-xl border-slate-300 focus:border-cyan-500 focus:ring-cyan-500"
+                  className="w-full rounded-xl border-gray-300 focus:border-black focus:ring-black"
                   placeholder="your@email.com"
                 />
               </div>
@@ -92,7 +92,7 @@ export const LeadForm = () => {
 
             <div className="grid md:grid-cols-2 gap-6 mb-6">
               <div>
-                <label className="block text-sm font-medium text-slate-700 mb-2">
+                <label className="block text-sm font-medium text-gray-700 mb-2">
                   Phone Number *
                 </label>
                 <Input
@@ -100,20 +100,20 @@ export const LeadForm = () => {
                   required
                   value={formData.phone}
                   onChange={(e) => handleInputChange("phone", e.target.value)}
-                  className="w-full rounded-xl border-slate-300 focus:border-cyan-500 focus:ring-cyan-500"
+                  className="w-full rounded-xl border-gray-300 focus:border-black focus:ring-black"
                   placeholder="+1 (555) 000-0000"
                 />
               </div>
               
               <div>
-                <label className="block text-sm font-medium text-slate-700 mb-2">
+                <label className="block text-sm font-medium text-gray-700 mb-2">
                   Instagram Handle
                 </label>
                 <Input
                   type="text"
                   value={formData.instagram}
                   onChange={(e) => handleInputChange("instagram", e.target.value)}
-                  className="w-full rounded-xl border-slate-300 focus:border-cyan-500 focus:ring-cyan-500"
+                  className="w-full rounded-xl border-gray-300 focus:border-black focus:ring-black"
                   placeholder="@yourusername"
                 />
               </div>
@@ -125,8 +125,8 @@ export const LeadForm = () => {
                 checked={formData.whatsappOptIn}
                 onCheckedChange={(checked) => handleInputChange("whatsappOptIn", checked as boolean)}
               />
-              <label htmlFor="whatsapp" className="text-sm text-slate-600 flex items-center">
-                <MessageCircle className="h-4 w-4 mr-2 text-green-600" />
+              <label htmlFor="whatsapp" className="text-sm text-gray-600 flex items-center">
+                <MessageCircle className="h-4 w-4 mr-2 text-gray-600" />
                 Get COD/payment link via WhatsApp for faster checkout
               </label>
             </div>
@@ -134,12 +134,12 @@ export const LeadForm = () => {
             <Button
               type="submit"
               disabled={isSubmitting}
-              className="w-full bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white py-4 text-lg font-semibold rounded-xl shadow-lg hover:shadow-cyan-500/25 transition-all duration-300 hover:scale-105"
+              className="w-full bg-gradient-to-r from-black to-gray-800 hover:from-gray-800 hover:to-black text-white py-4 text-lg font-semibold rounded-xl shadow-lg hover:shadow-black/25 transition-all duration-300 hover:scale-105"
             >
               {isSubmitting ? "Reserving Your Spot..." : "Reserve My MagLift Now"}
             </Button>
 
-            <p className="text-xs text-slate-500 text-center mt-4">
+            <p className="text-xs text-gray-500 text-center mt-4">
               🔒 We respect your privacy. No spam, ever. Unsubscribe anytime.
             </p>
           </form>

@@ -29,13 +29,13 @@ export const FAQ = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="py-20 bg-gradient-to-br from-slate-50 to-blue-50">
+    <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-6">
-            Frequently Asked <span className="bg-gradient-to-r from-cyan-500 to-blue-600 bg-clip-text text-transparent">Questions</span>
+          <h2 className="text-4xl lg:text-5xl font-bold text-black mb-6">
+            Frequently Asked <span className="bg-gradient-to-r from-black to-gray-600 bg-clip-text text-transparent">Questions</span>
           </h2>
-          <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Everything you need to know about MagLift
           </p>
         </div>
@@ -44,23 +44,23 @@ export const FAQ = () => {
           {faqs.map((faq, index) => (
             <div 
               key={index}
-              className="bg-white rounded-2xl shadow-lg overflow-hidden border border-slate-100"
+              className="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100"
             >
               <button
-                className="w-full px-6 py-6 text-left flex items-center justify-between hover:bg-slate-50 transition-colors duration-200"
+                className="w-full px-6 py-6 text-left flex items-center justify-between hover:bg-gray-50 transition-colors duration-200"
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
               >
                 <div className="flex items-center space-x-4">
-                  <div className="p-2 bg-gradient-to-r from-cyan-100 to-blue-100 rounded-lg">
-                    <faq.icon className="h-5 w-5 text-cyan-600" />
+                  <div className="p-2 bg-gradient-to-r from-gray-100 to-white rounded-lg border border-gray-200">
+                    <faq.icon className="h-5 w-5 text-black" />
                   </div>
-                  <h3 className="text-lg font-semibold text-slate-900">
+                  <h3 className="text-lg font-semibold text-black">
                     {faq.question}
                   </h3>
                 </div>
                 
                 <ChevronDown 
-                  className={`h-5 w-5 text-slate-500 transition-transform duration-200 ${
+                  className={`h-5 w-5 text-gray-500 transition-transform duration-200 ${
                     openIndex === index ? 'rotate-180' : ''
                   }`}
                 />
@@ -69,7 +69,7 @@ export const FAQ = () => {
               {openIndex === index && (
                 <div className="px-6 pb-6 animate-fade-in">
                   <div className="pl-12">
-                    <p className="text-slate-600 leading-relaxed">
+                    <p className="text-gray-600 leading-relaxed">
                       {faq.answer}
                     </p>
                   </div>
