@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from "react";
 import { ArrowRight, Flame } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { LiquidButton } from "@/components/ui/liquid-glass-button";
 
 export const Hero = () => {
   const [stockLeft, setStockLeft] = useState(32);
@@ -64,14 +64,14 @@ export const Hero = () => {
               </p>
             </div>
 
-            <Button 
+            <LiquidButton 
               onClick={scrollToForm}
-              size="lg"
-              className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white px-8 py-6 text-lg font-semibold rounded-xl shadow-2xl hover:shadow-cyan-500/25 transition-all duration-300 hover:scale-105 group"
+              size="xxl"
+              className="text-cyan-400 font-semibold text-lg hover:text-cyan-300 transition-colors group"
             >
               Reserve Now – Limited Stock!
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-            </Button>
+            </LiquidButton>
 
             <p className="text-sm text-slate-400 mt-4">
               No payment required now • Reserve yours today
