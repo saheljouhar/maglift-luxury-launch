@@ -12,7 +12,7 @@ const GlassButton = React.forwardRef<HTMLButtonElement, GlassButtonProps>(
     return (
       <button
         className={cn(
-          "reserve-btn inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 px-8 py-3 text-white font-semibold text-lg hover:shadow-lg cursor-pointer",
+          "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg text-sm font-medium transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 px-8 py-4 text-white font-semibold text-lg hover:shadow-lg cursor-pointer border-0 bg-white/10 backdrop-blur-md hover:bg-white/15 hover:transform hover:scale-105",
           className
         )}
         ref={ref}
