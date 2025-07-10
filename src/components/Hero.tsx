@@ -25,7 +25,7 @@ export const Hero = () => {
   };
 
   return (
-    <AuroraBackground className="relative min-h-screen overflow-hidden">
+    <AuroraBackground>
       {/* Seamless header space */}
       <div className="h-20"></div>
       
