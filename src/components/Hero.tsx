@@ -25,7 +25,7 @@ export const Hero = () => {
   };
 
   return (
-    <AuroraBackground>
+    <AuroraBackground className="dark">
       {/* Seamless header space */}
       <div className="h-20"></div>
       
