@@ -107,7 +107,7 @@ const Box = ({
             rotation={[Math.PI / 2, 0, 0]}
         >
             <meshPhysicalMaterial 
-                color={new Color(0x232323)}
+                color={0x232323}
                 roughness={0.5} 
                 metalness={1}
                 clearcoat={1}

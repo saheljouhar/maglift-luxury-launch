@@ -59,8 +59,8 @@ export const LeadForm = () => {
             </div>
           </div>
 
-          <form onSubmit={handleSubmit} className="bg-white rounded-2xl shadow-xl p-8">
-            <div className="grid md:grid-cols-2 gap-6 mb-6">
+          <form onSubmit={handleSubmit} className="bg-white rounded-2xl shadow-xl p-8 space-y-4">
+            <div className="grid md:grid-cols-2 gap-4">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   Full Name *
@@ -70,7 +70,7 @@ export const LeadForm = () => {
                   required
                   value={formData.name}
                   onChange={(e) => handleInputChange("name", e.target.value)}
-                  className="w-full rounded-xl bg-gray-100 border-gray-300 focus:border-black focus:ring-black"
+                  className="w-full h-12 px-4 mb-4 rounded-xl bg-gray-100 border-gray-300 focus:border-black focus:ring-black"
                   placeholder="Enter your name"
                 />
               </div>
@@ -84,13 +84,13 @@ export const LeadForm = () => {
                   required
                   value={formData.email}
                   onChange={(e) => handleInputChange("email", e.target.value)}
-                  className="w-full rounded-xl bg-gray-100 border-gray-300 focus:border-black focus:ring-black"
+                  className="w-full h-12 px-4 mb-4 rounded-xl bg-gray-100 border-gray-300 focus:border-black focus:ring-black"
                   placeholder="your@email.com"
                 />
               </div>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-6 mb-6">
+            <div className="grid md:grid-cols-2 gap-4">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   Phone Number *
@@ -100,7 +100,7 @@ export const LeadForm = () => {
                   required
                   value={formData.phone}
                   onChange={(e) => handleInputChange("phone", e.target.value)}
-                  className="w-full rounded-xl bg-gray-100 border-gray-300 focus:border-black focus:ring-black"
+                  className="w-full h-12 px-4 mb-4 rounded-xl bg-gray-100 border-gray-300 focus:border-black focus:ring-black"
                   placeholder="+1 (555) 000-0000"
                 />
               </div>
@@ -113,13 +113,13 @@ export const LeadForm = () => {
                   type="text"
                   value={formData.instagram}
                   onChange={(e) => handleInputChange("instagram", e.target.value)}
-                  className="w-full rounded-xl bg-gray-100 border-gray-300 focus:border-black focus:ring-black"
+                  className="w-full h-12 px-4 mb-4 rounded-xl bg-gray-100 border-gray-300 focus:border-black focus:ring-black"
                   placeholder="@yourusername"
                 />
               </div>
             </div>
 
-            <div className="flex items-center space-x-3 mb-6">
+            <div className="flex items-center space-x-3 mb-4">
               <Checkbox
                 id="whatsapp"
                 checked={formData.whatsappOptIn}
