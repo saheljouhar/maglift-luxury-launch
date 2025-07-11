@@ -9,9 +9,9 @@ export const Footer = () => {
           {/* Logo & Brand */}
           <div>
             <img 
-              src="/lovable-uploads/c2c7a70f-5cfd-4052-809a-2cdcf749cd7c.png" 
+              src="/lovable-uploads/45e55dd4-1d7d-4ed2-939c-34fb73d75980.png" 
               alt="MagLift Logo" 
-              className="h-12 w-auto mb-4"
+              className="h-16 w-auto mb-4"
             />
             <p className="text-slate-400">
               The ultimate magnetic gym bag for modern fitness enthusiasts.

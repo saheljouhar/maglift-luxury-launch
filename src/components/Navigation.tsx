@@ -13,7 +13,7 @@ export const Navigation = () => {
             className="flex items-center space-x-2 hover:opacity-80 transition-opacity"
           >
             <img 
-              src="/lovable-uploads/c2c7a70f-5cfd-4052-809a-2cdcf749cd7c.png" 
+              src="/lovable-uploads/45e55dd4-1d7d-4ed2-939c-34fb73d75980.png" 
               alt="MagLift Logo" 
               className="h-12 w-auto"
             />
