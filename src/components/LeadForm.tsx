@@ -70,7 +70,7 @@ export const LeadForm = () => {
                   required
                   value={formData.name}
                   onChange={(e) => handleInputChange("name", e.target.value)}
-                  className="w-full rounded-xl border-gray-300 focus:border-black focus:ring-black"
+                  className="w-full rounded-xl bg-gray-100 border-gray-300 focus:border-black focus:ring-black"
                   placeholder="Enter your name"
                 />
               </div>
@@ -84,7 +84,7 @@ export const LeadForm = () => {
                   required
                   value={formData.email}
                   onChange={(e) => handleInputChange("email", e.target.value)}
-                  className="w-full rounded-xl border-gray-300 focus:border-black focus:ring-black"
+                  className="w-full rounded-xl bg-gray-100 border-gray-300 focus:border-black focus:ring-black"
                   placeholder="your@email.com"
                 />
               </div>
@@ -100,7 +100,7 @@ export const LeadForm = () => {
                   required
                   value={formData.phone}
                   onChange={(e) => handleInputChange("phone", e.target.value)}
-                  className="w-full rounded-xl border-gray-300 focus:border-black focus:ring-black"
+                  className="w-full rounded-xl bg-gray-100 border-gray-300 focus:border-black focus:ring-black"
                   placeholder="+1 (555) 000-0000"
                 />
               </div>
@@ -113,7 +113,7 @@ export const LeadForm = () => {
                   type="text"
                   value={formData.instagram}
                   onChange={(e) => handleInputChange("instagram", e.target.value)}
-                  className="w-full rounded-xl border-gray-300 focus:border-black focus:ring-black"
+                  className="w-full rounded-xl bg-gray-100 border-gray-300 focus:border-black focus:ring-black"
                   placeholder="@yourusername"
                 />
               </div>
