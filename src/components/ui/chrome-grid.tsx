@@ -2,7 +2,7 @@
 
 import React, { useRef, useState, useMemo, useEffect } from 'react'
 import { Canvas, useFrame, useThree } from '@react-three/fiber'
-import { ExtrudeGeometry, Shape } from 'three'
+import { ExtrudeGeometry, Shape, Color } from 'three'
 import * as THREE from 'three'
 
 interface BoxProps {
@@ -107,7 +107,7 @@ const Box = ({
             rotation={[Math.PI / 2, 0, 0]}
         >
             <meshPhysicalMaterial 
-                color="#232323"
+                color={new Color(0x232323)}
                 roughness={0.5} 
                 metalness={1}
                 clearcoat={1}
