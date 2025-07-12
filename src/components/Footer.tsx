@@ -11,7 +11,7 @@ export const Footer = () => {
             <img 
               src="/lovable-uploads/45e55dd4-1d7d-4ed2-939c-34fb73d75980.png" 
               alt="MagLift Logo" 
-              className="h-16 w-auto mb-4"
+              className="h-64 w-auto mb-4"
             />
             <p className="text-slate-400">
               The ultimate magnetic gym bag for modern fitness enthusiasts.
