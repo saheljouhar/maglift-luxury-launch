@@ -26,7 +26,7 @@ const Box = ({ position, hovered, setHovered, id }: BoxProps) => {
     }
   })
 
-  const boxColor = isHovered ? '#4338ca' : active ? '#06b6d4' : '#374151'
+  const boxColor = new THREE.Color(isHovered ? '#4338ca' : active ? '#06b6d4' : '#374151')
 
   return (
     <mesh
@@ -93,7 +93,7 @@ const GridBackground = () => {
         rotation={[Math.PI / 2, 0, 0]}
     >
         <meshPhysicalMaterial 
-            color="#232323"
+            color={new THREE.Color(0x232323)}
             roughness={0.5} 
             metalness={1}
             clearcoat={1}
