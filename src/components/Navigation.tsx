@@ -13,15 +13,6 @@ export const Navigation = () => {
               className="h-12 w-auto"
             />
           </Link>
-          
-          <div className="flex items-center space-x-4">
-            <Link 
-              to="/demo" 
-              className="text-white/80 hover:text-white transition-colors text-sm font-mono tracking-wide"
-            >
-              Demo
-            </Link>
-          </div>
         </div>
       </div>
     </nav>
