@@ -1,6 +1,7 @@
 
 import { Instagram } from "lucide-react";
 import { Link } from "react-router-dom";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 export const Navigation = () => {
   return (
@@ -15,12 +16,15 @@ export const Navigation = () => {
             />
           </Link>
           
-          <Link 
-            to="/demo" 
-            className="text-white/80 hover:text-white transition-colors text-sm font-mono tracking-wide"
-          >
-            Demo
-          </Link>
+          <div className="flex items-center space-x-4">
+            <Link 
+              to="/demo" 
+              className="text-white/80 hover:text-white transition-colors text-sm font-mono tracking-wide"
+            >
+              Demo
+            </Link>
+            <ThemeToggle />
+          </div>
         </div>
       </div>
     </nav>
