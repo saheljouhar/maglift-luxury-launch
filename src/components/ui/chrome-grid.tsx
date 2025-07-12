@@ -1,3 +1,4 @@
+
 "use client"
 
 import React, { useRef, useState, useMemo, useEffect } from 'react'
@@ -39,7 +40,7 @@ const Box = ({ position, hovered, setHovered, id }: BoxProps) => {
     >
       <boxGeometry args={[0.8, 0.8, 0.8]} />
       <meshStandardMaterial 
-        color={isHovered ? '#4338ca' : active ? '#06b6d4' : '#374151'} 
+        color={new THREE.Color(isHovered ? '#4338ca' : active ? '#06b6d4' : '#374151')}
         transparent 
         opacity={0.8}
       />
@@ -119,7 +120,7 @@ export const ChromeGrid = () => {
   }, [])
 
   return (
-    <div className="w-full h-96 bg-transparent">
+    <div className="w-full h-96 bg-background">
       <Canvas camera={{ position: [0, 5, 10], fov: 60 }}>
         <ambientLight intensity={0.5} />
         <pointLight position={[10, 10, 10]} />

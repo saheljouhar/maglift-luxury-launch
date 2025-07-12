@@ -1,47 +1,25 @@
 
-import { createContext, useContext, useEffect, useState } from 'react'
-
-type Theme = 'dark' | 'light'
+import { createContext, useContext, useEffect } from 'react'
 
 type ThemeProviderContextType = {
-  theme: Theme
-  setTheme: (theme: Theme) => void
-  toggleTheme: () => void
+  theme: 'dark'
 }
 
 const ThemeProviderContext = createContext<ThemeProviderContextType | undefined>(undefined)
 
 export function ThemeProvider({
   children,
-  defaultTheme = 'dark',
 }: {
   children: React.ReactNode
-  defaultTheme?: Theme
 }) {
-  const [theme, setTheme] = useState<Theme>(() => {
-    // Check localStorage first, fallback to defaultTheme
-    if (typeof window !== 'undefined') {
-      const stored = localStorage.getItem('theme') as Theme
-      return stored || defaultTheme
-    }
-    return defaultTheme
-  })
-
   useEffect(() => {
     const root = window.document.documentElement
-    root.classList.remove('light', 'dark')
-    root.classList.add(theme)
-    localStorage.setItem('theme', theme)
-  }, [theme])
-
-  const toggleTheme = () => {
-    setTheme(prev => prev === 'dark' ? 'light' : 'dark')
-  }
+    root.classList.remove('light')
+    root.classList.add('dark')
+  }, [])
 
   const value = {
-    theme,
-    setTheme,
-    toggleTheme,
+    theme: 'dark' as const,
   }
 
   return (

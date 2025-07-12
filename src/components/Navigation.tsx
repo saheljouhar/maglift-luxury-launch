@@ -1,7 +1,5 @@
 
-import { Instagram } from "lucide-react";
 import { Link } from "react-router-dom";
-import { ThemeToggle } from "@/components/ThemeToggle";
 
 export const Navigation = () => {
   return (
@@ -23,7 +21,6 @@ export const Navigation = () => {
             >
               Demo
             </Link>
-            <ThemeToggle />
           </div>
         </div>
       </div>
