@@ -42,7 +42,9 @@ const Box = ({ position, hovered, setHovered, id }: BoxProps) => {
     >
       <boxGeometry args={[0.8, 0.8, 0.8]} />
       <meshStandardMaterial 
-        color={new THREE.Color(boxColor)}
+        color={new THREE.Color(0x0f172a)}
+        roughness={0.5}
+        metalness={0.1}
         transparent 
         opacity={0.8}
       />
@@ -92,14 +94,12 @@ const GridBackground = () => {
         position={[0, -2, 0]} 
         rotation={[Math.PI / 2, 0, 0]}
     >
-        <meshPhysicalMaterial 
-            color={new THREE.Color("#232323")}
-            roughness={0.5} 
-            metalness={1}
-            clearcoat={1}
-            clearcoatRoughness={0.1}
-            transparent={true}
-            opacity={0.3}
+        <meshStandardMaterial
+          color={new THREE.Color(0x0f172a)}
+          roughness={0.5}
+          metalness={0.1}
+          transparent={false}
+          opacity={1.0}
         />
     </mesh>
   )
