@@ -17,7 +17,7 @@ const GridPlane = () => {
     <mesh ref={meshRef}>
       <planeGeometry args={[20, 20, 20, 20]} />
       <meshStandardMaterial 
-        color={0x333333}
+        color="#333333"
         wireframe
         transparent
         opacity={0.3}
@@ -41,7 +41,7 @@ const FloatingCube = ({ position }: { position: [number, number, number] }) => {
     <mesh ref={meshRef} position={position}>
       <boxGeometry args={[1, 1, 1]} />
       <meshStandardMaterial 
-        color={0x666666}
+        color="#666666"
         roughness={0.3}
         metalness={0.7}
         transparent
