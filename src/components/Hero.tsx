@@ -26,8 +26,8 @@ export const Hero = () => {
 
   return (
     <AuroraBackground className="dark">
-      {/* Seamless header space */}
-      <div className="h-20"></div>
+      {/* Account for fixed header */}
+      <div className="h-24"></div>
       
       <div className="container mx-auto px-4 py-12 relative z-10">
         <div className="flex flex-col items-center justify-center min-h-[80vh] text-center">
