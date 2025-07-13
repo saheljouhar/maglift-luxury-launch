@@ -1,7 +1,13 @@
 
 import React, { useRef } from 'react';
-import { Canvas, useFrame } from '@react-three/fiber';
+import { Canvas, useFrame, extend } from '@react-three/fiber';
 import { Mesh } from 'three';
+import * as THREE from 'three';
+
+extend({ 
+  MeshBasicMaterial: THREE.MeshBasicMaterial,
+  MeshStandardMaterial: THREE.MeshStandardMaterial 
+});
 
 const GridPlane = () => {
   const meshRef = useRef<Mesh>(null);
@@ -16,11 +22,11 @@ const GridPlane = () => {
   return (
     <mesh ref={meshRef}>
       <planeGeometry args={[20, 20, 20, 20]} />
-      <meshBasicMaterial 
+      <meshBasicMaterial
         wireframe={true}
         transparent={true}
         opacity={0.8}
-        color="#1e293b"
+        color={new THREE.Color('#0f172a')}
       />
     </mesh>
   );
@@ -43,7 +49,7 @@ const FloatingCube = ({ position }: { position: [number, number, number] }) => {
       <meshStandardMaterial
         roughness={0.5}
         metalness={0.1}
-        color="#1e293b"
+        color={new THREE.Color('#0f172a')}
       />
     </mesh>
   );
