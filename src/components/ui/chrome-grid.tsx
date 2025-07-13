@@ -1,71 +1,142 @@
 
-import React, { useRef } from 'react';
-import { Canvas, useFrame, extend } from '@react-three/fiber';
-import { Mesh } from 'three';
-import * as THREE from 'three';
+"use client"
 
-extend({ 
-  MeshBasicMaterial: THREE.MeshBasicMaterial,
-  MeshStandardMaterial: THREE.MeshStandardMaterial 
-});
+import React, { useRef, useState, useMemo, useEffect } from 'react'
+import { Canvas, useFrame, useThree } from '@react-three/fiber'
+import { ExtrudeGeometry, Shape } from 'three'
+import * as THREE from 'three'
 
-const GridPlane = () => {
-  const meshRef = useRef<Mesh>(null);
+interface BoxProps {
+  position: [number, number, number]
+  hovered: Set<string>
+  setHovered: React.Dispatch<React.SetStateAction<Set<string>>>
+  id: string
+}
 
-  useFrame((state) => {
-    if (meshRef.current) {
-      meshRef.current.rotation.x = -Math.PI / 2;
-      meshRef.current.position.y = -2;
+const Box = ({ position, hovered, setHovered, id }: BoxProps) => {
+  const mesh = useRef<THREE.Mesh>(null!)
+  const [active, setActive] = useState(false)
+  
+  const isHovered = hovered.has(id)
+
+  useFrame(() => {
+    if (mesh.current) {
+      mesh.current.rotation.x += 0.01
+      mesh.current.rotation.y += 0.01
     }
-  });
+  })
+
+  const boxColor = isHovered ? '#4338ca' : active ? '#06b6d4' : '#374151'
 
   return (
-    <mesh ref={meshRef}>
-      <planeGeometry args={[20, 20, 20, 20]} />
-      <meshBasicMaterial
-        wireframe={true}
-        transparent={true}
-        opacity={0.8}
-        color={new THREE.Color('#0f172a')}
-      />
-    </mesh>
-  );
-};
-
-const FloatingCube = ({ position }: { position: [number, number, number] }) => {
-  const meshRef = useRef<Mesh>(null);
-
-  useFrame((state) => {
-    if (meshRef.current) {
-      meshRef.current.rotation.x += 0.01;
-      meshRef.current.rotation.y += 0.01;
-      meshRef.current.position.y = position[1] + Math.sin(state.clock.elapsedTime) * 0.5;
-    }
-  });
-
-  return (
-    <mesh ref={meshRef} position={position}>
-      <boxGeometry args={[1, 1, 1]} />
-      <meshStandardMaterial
+    <mesh
+      ref={mesh}
+      position={position}
+      onClick={() => setActive(!active)}
+      onPointerOver={() => setHovered(prev => new Set(prev).add(id))}
+      onPointerOut={() => setHovered(prev => {
+        const newSet = new Set(prev)
+        newSet.delete(id)
+        return newSet
+      })}
+    >
+      <boxGeometry args={[0.8, 0.8, 0.8]} />
+      <meshStandardMaterial 
+        color={0x0f172a}
         roughness={0.5}
         metalness={0.1}
-        color={new THREE.Color('#0f172a')}
+        transparent 
+        opacity={0.8}
       />
     </mesh>
-  );
-};
+  )
+}
+
+const GridBackground = () => {
+  const { scene } = useThree()
+  
+  const gridGeometry = useMemo(() => {
+    const shape = new Shape()
+    const size = 20
+    const divisions = 40
+    const step = size / divisions
+
+    // Create grid lines
+    for (let i = 0; i <= divisions; i++) {
+      const pos = -size / 2 + i * step
+      
+      // Horizontal lines
+      shape.moveTo(-size / 2, pos)
+      shape.lineTo(size / 2, pos)
+      
+      // Vertical lines  
+      shape.moveTo(pos, -size / 2)
+      shape.lineTo(pos, size / 2)
+    }
+
+    const extrudeSettings = {
+      depth: 0.01,
+      bevelEnabled: false,
+    }
+
+    return new ExtrudeGeometry(shape, extrudeSettings)
+  }, [])
+
+  useEffect(() => {
+    return () => {
+      gridGeometry.dispose()
+    }
+  }, [gridGeometry])
+
+  return (
+    <mesh 
+        geometry={gridGeometry} 
+        position={[0, -2, 0]} 
+        rotation={[Math.PI / 2, 0, 0]}
+    >
+        <meshStandardMaterial
+          color={0x0f172a}
+          roughness={0.5}
+          metalness={0.1}
+          transparent={false}
+          opacity={1.0}
+        />
+    </mesh>
+  )
+}
 
 export const ChromeGrid = () => {
+  const [hovered, setHovered] = useState<Set<string>>(new Set())
+
+  const boxes = useMemo(() => {
+    const result = []
+    for (let x = -3; x <= 3; x += 2) {
+      for (let z = -3; z <= 3; z += 2) {
+        result.push({
+          position: [x, 0, z] as [number, number, number],
+          id: `${x}-${z}`
+        })
+      }
+    }
+    return result
+  }, [])
+
   return (
-    <div className="w-full h-64 relative">
-      <Canvas camera={{ position: [0, 5, 10], fov: 75 }}>
+    <div className="w-full h-96 bg-background">
+      <Canvas camera={{ position: [0, 5, 10], fov: 60 }}>
         <ambientLight intensity={0.5} />
         <pointLight position={[10, 10, 10]} />
-        <GridPlane />
-        <FloatingCube position={[-3, 2, 0]} />
-        <FloatingCube position={[3, 1, -2]} />
-        <FloatingCube position={[0, 3, 1]} />
+        <GridBackground />
+        {boxes.map(({ position, id }) => (
+          <Box 
+            key={id}
+            position={position} 
+            hovered={hovered}
+            setHovered={setHovered}
+            id={id}
+          />
+        ))}
       </Canvas>
     </div>
-  );
-};
+  )
+}
