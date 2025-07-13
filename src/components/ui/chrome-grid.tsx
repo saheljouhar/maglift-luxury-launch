@@ -17,8 +17,8 @@ const GridPlane = () => {
     <mesh ref={meshRef}>
       <planeGeometry args={[20, 20, 20, 20]} />
       <meshBasicMaterial 
-        wireframe
-        transparent
+        wireframe={true}
+        transparent={true}
         opacity={0.8}
         color="#1e293b"
       />
