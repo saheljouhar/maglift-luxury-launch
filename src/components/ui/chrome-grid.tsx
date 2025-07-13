@@ -2,9 +2,15 @@
 "use client"
 
 import React, { useRef, useState, useMemo, useEffect } from 'react'
-import { Canvas, useFrame, useThree } from '@react-three/fiber'
+import { Canvas, useFrame, useThree, extend } from '@react-three/fiber'
 import { ExtrudeGeometry, Shape } from 'three'
 import * as THREE from 'three'
+
+// Extend THREE.js materials for React Three Fiber
+extend({
+  MeshStandardMaterial: THREE.MeshStandardMaterial,
+  MeshBasicMaterial: THREE.MeshBasicMaterial
+});
 
 interface BoxProps {
   position: [number, number, number]
@@ -41,11 +47,11 @@ const Box = ({ position, hovered, setHovered, id }: BoxProps) => {
       })}
     >
       <boxGeometry args={[0.8, 0.8, 0.8]} />
-      <meshStandardMaterial 
-        color={0x0f172a}
+      <meshStandardMaterial
+        color={new THREE.Color(0x0f172a)}
         roughness={0.5}
         metalness={0.1}
-        transparent 
+        transparent={true}
         opacity={0.8}
       />
     </mesh>
@@ -94,8 +100,8 @@ const GridBackground = () => {
         position={[0, -2, 0]} 
         rotation={[Math.PI / 2, 0, 0]}
     >
-        <meshStandardMaterial
-          color={0x0f172a}
+        <meshBasicMaterial
+          color={new THREE.Color(0x0f172a)}
           roughness={0.5}
           metalness={0.1}
           transparent={false}
