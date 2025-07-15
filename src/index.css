@@ -72,19 +72,3 @@ All colors MUST be HSL.
   background: rgba(255, 255, 255, 0.15);
   transform: translateY(-1px);
 }
-
-/* Make logo truly fixed */
-.header-logo {
-  position: fixed !important;
-  top: 20px !important;
-  left: 50% !important;
-  transform: translateX(-50%) !important;
-  z-index: 1000 !important;
-  background: transparent !important;
-}
-
-/* Prevent header background from moving */
-header {
-  background: transparent !important;
-  position: static !important;
-}
