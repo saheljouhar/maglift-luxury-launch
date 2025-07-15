@@ -25,12 +25,9 @@ export const Hero = () => {
   };
 
   return (
-    <AuroraBackground className="dark">
-      {/* Seamless header space */}
-      <div className="h-20"></div>
-      
+    <AuroraBackground className="dark relative">
       <div className="container mx-auto px-4 py-12 relative z-10">
-        <div className="flex flex-col items-center justify-center min-h-[80vh] text-center">
+        <div className="flex flex-col items-center justify-center min-h-screen text-center pt-32">
           {/* Main Heading */}
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight max-w-5xl">
             MagLift – The Ultimate No-Floor Gym Bag
