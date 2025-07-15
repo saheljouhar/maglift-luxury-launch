@@ -42,11 +42,13 @@ const Box = ({ position, hovered, setHovered, id }: BoxProps) => {
     >
       <boxGeometry args={[0.8, 0.8, 0.8]} />
       <meshStandardMaterial
-        color="#0f172a"
-        roughness={0.5}
-        metalness={0.1}
-        transparent={true}
-        opacity={0.8}
+        args={[{
+          color: 0x0f172a,
+          roughness: 0.5,
+          metalness: 0.1,
+          transparent: true,
+          opacity: 0.8
+        }]}
       />
     </mesh>
   )
@@ -95,9 +97,11 @@ const GridBackground = () => {
         rotation={[Math.PI / 2, 0, 0]}
     >
         <meshBasicMaterial
-          color="#0f172a"
-          transparent={false}
-          opacity={1.0}
+          args={[{
+            color: 0x0f172a,
+            transparent: false,
+            opacity: 1.0
+          }]}
         />
     </mesh>
   )
