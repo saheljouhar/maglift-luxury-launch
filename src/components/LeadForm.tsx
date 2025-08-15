@@ -84,10 +84,10 @@ export const LeadForm = () => {
 
           <form onSubmit={handleSubmit} className="form-container bg-white rounded-2xl shadow-xl p-8 pr-16">
             {/* First Row - Name and Email */}
-            <div className="mb-16">
-              <div className="grid md:grid-cols-2 gap-8">
+            <div className="mb-32">
+              <div className="grid md:grid-cols-2 gap-16">
                 <div className="name-field">
-                  <label className="block text-sm font-medium text-gray-700 mb-3">
+                  <label className="block text-sm font-medium text-gray-700 mb-6">
                     Full Name *
                   </label>
                   <Input
@@ -101,7 +101,7 @@ export const LeadForm = () => {
                 </div>
                 
                 <div className="email-field">
-                  <label className="block text-sm font-medium text-gray-700 mb-3">
+                  <label className="block text-sm font-medium text-gray-700 mb-6">
                     Email Address *
                   </label>
                   <Input
@@ -117,10 +117,10 @@ export const LeadForm = () => {
             </div>
 
             {/* Second Row - Phone and Instagram */}
-            <div className="mb-16">
-              <div className="grid md:grid-cols-2 gap-8">
+            <div className="mb-32">
+              <div className="grid md:grid-cols-2 gap-16">
                 <div className="phone-field">
-                  <label className="block text-sm font-medium text-gray-700 mb-3">
+                  <label className="block text-sm font-medium text-gray-700 mb-6">
                     Phone Number *
                   </label>
                   <Input
@@ -134,7 +134,7 @@ export const LeadForm = () => {
                 </div>
                 
                 <div className="instagram-field">
-                  <label className="block text-sm font-medium text-gray-700 mb-3">
+                  <label className="block text-sm font-medium text-gray-700 mb-6">
                     Instagram Handle
                   </label>
                   <Input
@@ -149,7 +149,7 @@ export const LeadForm = () => {
             </div>
 
             {/* WhatsApp Checkbox */}
-            <div className="flex items-center space-x-3 mb-12">
+            <div className="flex items-center justify-center space-x-3 mb-24">
               <Checkbox
                 id="whatsapp"
                 checked={formData.whatsappOptIn}
@@ -162,11 +162,11 @@ export const LeadForm = () => {
             </div>
 
             {/* Submit Button */}
-            <div className="px-0">
+            <div className="flex flex-col items-center">
               <Button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-gradient-to-r from-black to-gray-800 hover:from-gray-800 hover:to-black text-white py-4 text-lg font-semibold rounded-xl shadow-lg hover:shadow-black/25 transition-all duration-300 hover:scale-105 mb-4"
+                className="w-full max-w-md bg-gradient-to-r from-black to-gray-800 hover:from-gray-800 hover:to-black text-white py-4 text-lg font-semibold rounded-xl shadow-lg hover:shadow-black/25 transition-all duration-300 hover:scale-105 mb-8"
               >
                 {isSubmitting ? "Reserving Your Spot..." : "Reserve My MagLift Now"}
               </Button>
