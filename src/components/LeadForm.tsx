@@ -82,9 +82,10 @@ export const LeadForm = () => {
             </div>
           </div>
 
-          <form onSubmit={handleSubmit} className="form-container bg-white rounded-2xl shadow-xl p-8 pr-16 space-y-6">
-            <div className="grid md:grid-cols-2 gap-4 mb-8">
-              <div className="name-field mb-8">
+          <form onSubmit={handleSubmit} className="form-container bg-white rounded-2xl shadow-xl p-8 pr-16">
+            {/* First Row - Name and Email */}
+            <div className="grid md:grid-cols-2 gap-6 mb-12">
+              <div className="name-field">
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   Full Name *
                 </label>
@@ -93,12 +94,12 @@ export const LeadForm = () => {
                   required
                   value={formData.name}
                   onChange={(e) => handleInputChange("name", e.target.value)}
-                  className="w-full h-12 px-4 py-3 my-2 rounded-xl bg-gray-100 border-gray-300 focus:border-black focus:ring-black"
+                  className="w-full h-12 px-4 py-3 rounded-xl bg-gray-100 border-gray-300 focus:border-black focus:ring-black"
                   placeholder="Enter your name"
                 />
               </div>
               
-              <div className="email-field mb-8">
+              <div className="email-field">
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   Email Address *
                 </label>
@@ -107,14 +108,15 @@ export const LeadForm = () => {
                   required
                   value={formData.email}
                   onChange={(e) => handleInputChange("email", e.target.value)}
-                  className="w-full h-12 px-4 py-3 my-2 rounded-xl bg-gray-100 border-gray-300 focus:border-black focus:ring-black"
+                  className="w-full h-12 px-4 py-3 rounded-xl bg-gray-100 border-gray-300 focus:border-black focus:ring-black"
                   placeholder="your@email.com"
                 />
               </div>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-4 mb-8">
-              <div className="phone-field mb-8">
+            {/* Second Row - Phone and Instagram */}
+            <div className="grid md:grid-cols-2 gap-6 mb-12">
+              <div className="phone-field">
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   Phone Number *
                 </label>
@@ -123,12 +125,12 @@ export const LeadForm = () => {
                   required
                   value={formData.phone}
                   onChange={(e) => handleInputChange("phone", e.target.value)}
-                  className="w-full h-12 px-4 py-3 my-2 rounded-xl bg-gray-100 border-gray-300 focus:border-black focus:ring-black"
+                  className="w-full h-12 px-4 py-3 rounded-xl bg-gray-100 border-gray-300 focus:border-black focus:ring-black"
                   placeholder="+1 (555) 000-0000"
                 />
               </div>
               
-              <div className="form-field mb-6">
+              <div className="instagram-field">
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   Instagram Handle
                 </label>
@@ -136,13 +138,14 @@ export const LeadForm = () => {
                   type="text"
                   value={formData.instagram}
                   onChange={(e) => handleInputChange("instagram", e.target.value)}
-                  className="w-full h-12 px-4 py-3 my-2 rounded-xl bg-gray-100 border-gray-300 focus:border-black focus:ring-black"
+                  className="w-full h-12 px-4 py-3 rounded-xl bg-gray-100 border-gray-300 focus:border-black focus:ring-black"
                   placeholder="@yourusername"
                 />
               </div>
             </div>
 
-            <div className="flex items-center space-x-3 form-field mb-6">
+            {/* WhatsApp Checkbox */}
+            <div className="flex items-center space-x-3 mb-10">
               <Checkbox
                 id="whatsapp"
                 checked={formData.whatsappOptIn}
@@ -154,17 +157,20 @@ export const LeadForm = () => {
               </label>
             </div>
 
-            <Button
-              type="submit"
-              disabled={isSubmitting}
-              className="w-full bg-gradient-to-r from-black to-gray-800 hover:from-gray-800 hover:to-black text-white py-4 text-lg font-semibold rounded-xl shadow-lg hover:shadow-black/25 transition-all duration-300 hover:scale-105"
-            >
-              {isSubmitting ? "Reserving Your Spot..." : "Reserve My MagLift Now"}
-            </Button>
-
-            <p className="text-xs text-gray-500 text-center mt-4">
-              🔒 We respect your privacy. No spam, ever. Unsubscribe anytime.
-            </p>
+            {/* Submit Button */}
+            <div className="px-0">
+              <Button
+                type="submit"
+                disabled={isSubmitting}
+                className="w-full bg-gradient-to-r from-black to-gray-800 hover:from-gray-800 hover:to-black text-white py-4 text-lg font-semibold rounded-xl shadow-lg hover:shadow-black/25 transition-all duration-300 hover:scale-105 mb-4"
+              >
+                {isSubmitting ? "Reserving Your Spot..." : "Reserve My MagLift Now"}
+              </Button>
+              
+              <p className="text-xs text-gray-500 text-center">
+                🔒 We respect your privacy. No spam, ever. Unsubscribe anytime.
+              </p>
+            </div>
           </form>
         </div>
       </div>
