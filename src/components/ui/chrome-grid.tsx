@@ -19,6 +19,16 @@ const Box = ({ position, hovered, setHovered, id }: BoxProps) => {
   
   const isHovered = hovered.has(id)
 
+  const material = useMemo(() => {
+    return new THREE.MeshStandardMaterial({
+      color: 0x0f172a,
+      roughness: 0.5,
+      metalness: 0.1,
+      transparent: true,
+      opacity: 0.8
+    })
+  }, [])
+
   useFrame(() => {
     if (mesh.current) {
       mesh.current.rotation.x += 0.01
@@ -39,15 +49,9 @@ const Box = ({ position, hovered, setHovered, id }: BoxProps) => {
         newSet.delete(id)
         return newSet
       })}
+      material={material}
     >
       <boxGeometry args={[0.8, 0.8, 0.8]} />
-      <meshStandardMaterial 
-        color={new THREE.Color(0x0f172a)}
-        roughness={0.5}
-        metalness={0.1}
-        transparent 
-        opacity={0.8}
-      />
     </mesh>
   )
 }
@@ -82,26 +86,30 @@ const GridBackground = () => {
     return new ExtrudeGeometry(shape, extrudeSettings)
   }, [])
 
+  const material = useMemo(() => {
+    return new THREE.MeshStandardMaterial({
+      color: 0x0f172a,
+      roughness: 0.5,
+      metalness: 0.1,
+      transparent: false,
+      opacity: 1.0
+    })
+  }, [])
+
   useEffect(() => {
     return () => {
       gridGeometry.dispose()
+      material.dispose()
     }
-  }, [gridGeometry])
+  }, [gridGeometry, material])
 
   return (
     <mesh 
         geometry={gridGeometry} 
         position={[0, -2, 0]} 
         rotation={[Math.PI / 2, 0, 0]}
-    >
-        <meshStandardMaterial
-          color={new THREE.Color(0x0f172a)}
-          roughness={0.5}
-          metalness={0.1}
-          transparent={false}
-          opacity={1.0}
-        />
-    </mesh>
+        material={material}
+    />
   )
 }
 
