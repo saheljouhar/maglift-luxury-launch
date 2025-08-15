@@ -84,68 +84,72 @@ export const LeadForm = () => {
 
           <form onSubmit={handleSubmit} className="form-container bg-white rounded-2xl shadow-xl p-8 pr-16">
             {/* First Row - Name and Email */}
-            <div className="grid md:grid-cols-2 gap-6 mb-12">
-              <div className="name-field">
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Full Name *
-                </label>
-                <Input
-                  type="text"
-                  required
-                  value={formData.name}
-                  onChange={(e) => handleInputChange("name", e.target.value)}
-                  className="w-full h-12 px-4 py-3 rounded-xl bg-gray-100 border-gray-300 focus:border-black focus:ring-black"
-                  placeholder="Enter your name"
-                />
-              </div>
-              
-              <div className="email-field">
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Email Address *
-                </label>
-                <Input
-                  type="email"
-                  required
-                  value={formData.email}
-                  onChange={(e) => handleInputChange("email", e.target.value)}
-                  className="w-full h-12 px-4 py-3 rounded-xl bg-gray-100 border-gray-300 focus:border-black focus:ring-black"
-                  placeholder="your@email.com"
-                />
+            <div className="mb-16">
+              <div className="grid md:grid-cols-2 gap-8">
+                <div className="name-field">
+                  <label className="block text-sm font-medium text-gray-700 mb-3">
+                    Full Name *
+                  </label>
+                  <Input
+                    type="text"
+                    required
+                    value={formData.name}
+                    onChange={(e) => handleInputChange("name", e.target.value)}
+                    className="w-full h-14 px-4 py-3 rounded-xl bg-gray-100 border-gray-300 focus:border-black focus:ring-black"
+                    placeholder="Enter your name"
+                  />
+                </div>
+                
+                <div className="email-field">
+                  <label className="block text-sm font-medium text-gray-700 mb-3">
+                    Email Address *
+                  </label>
+                  <Input
+                    type="email"
+                    required
+                    value={formData.email}
+                    onChange={(e) => handleInputChange("email", e.target.value)}
+                    className="w-full h-14 px-4 py-3 rounded-xl bg-gray-100 border-gray-300 focus:border-black focus:ring-black"
+                    placeholder="your@email.com"
+                  />
+                </div>
               </div>
             </div>
 
             {/* Second Row - Phone and Instagram */}
-            <div className="grid md:grid-cols-2 gap-6 mb-12">
-              <div className="phone-field">
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Phone Number *
-                </label>
-                <Input
-                  type="tel"
-                  required
-                  value={formData.phone}
-                  onChange={(e) => handleInputChange("phone", e.target.value)}
-                  className="w-full h-12 px-4 py-3 rounded-xl bg-gray-100 border-gray-300 focus:border-black focus:ring-black"
-                  placeholder="+1 (555) 000-0000"
-                />
-              </div>
-              
-              <div className="instagram-field">
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Instagram Handle
-                </label>
-                <Input
-                  type="text"
-                  value={formData.instagram}
-                  onChange={(e) => handleInputChange("instagram", e.target.value)}
-                  className="w-full h-12 px-4 py-3 rounded-xl bg-gray-100 border-gray-300 focus:border-black focus:ring-black"
-                  placeholder="@yourusername"
-                />
+            <div className="mb-16">
+              <div className="grid md:grid-cols-2 gap-8">
+                <div className="phone-field">
+                  <label className="block text-sm font-medium text-gray-700 mb-3">
+                    Phone Number *
+                  </label>
+                  <Input
+                    type="tel"
+                    required
+                    value={formData.phone}
+                    onChange={(e) => handleInputChange("phone", e.target.value)}
+                    className="w-full h-14 px-4 py-3 rounded-xl bg-gray-100 border-gray-300 focus:border-black focus:ring-black"
+                    placeholder="+1 (555) 000-0000"
+                  />
+                </div>
+                
+                <div className="instagram-field">
+                  <label className="block text-sm font-medium text-gray-700 mb-3">
+                    Instagram Handle
+                  </label>
+                  <Input
+                    type="text"
+                    value={formData.instagram}
+                    onChange={(e) => handleInputChange("instagram", e.target.value)}
+                    className="w-full h-14 px-4 py-3 rounded-xl bg-gray-100 border-gray-300 focus:border-black focus:ring-black"
+                    placeholder="@yourusername"
+                  />
+                </div>
               </div>
             </div>
 
             {/* WhatsApp Checkbox */}
-            <div className="flex items-center space-x-3 mb-10">
+            <div className="flex items-center space-x-3 mb-12">
               <Checkbox
                 id="whatsapp"
                 checked={formData.whatsappOptIn}
